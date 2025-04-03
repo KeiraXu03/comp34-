@@ -1,0 +1,33 @@
+{
+  "quizTitle": "Sample Quiz",
+  "quizNumber": 1,
+  "studentId": "123456",
+  "score": 90,
+  "Submission": [
+    {
+      "questionIndex": 1,
+      "type": "mcq",
+      "question": "What is the capital of France?",
+      "score": 10,
+      "options": ["London", "Paris", "Berlin", "Madrid"],
+      "answer": "Paris",
+      "studentAnswer": "Paris"
+    },
+    {
+      "questionIndex": 2,
+      "type": "fillInTheBlanks",
+      "question": "The capital of Italy is ___",
+      "score": 5,
+      "answer": "Rome",
+      "studentAnswer": "Rome"
+    },
+    {
+      "questionIndex": 3,
+      "type": "shortAnswer",
+      "question": "Name one of the Great Lakes in the United States.",
+      "score": 7,
+      "answer": "",
+      "studentAnswer": "Lake Superior"
+    }
+  ]
+}

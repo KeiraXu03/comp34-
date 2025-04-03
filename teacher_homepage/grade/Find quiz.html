@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enter Quiz Number</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #292929;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 40px;
+            max-width: 600px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: black;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        #quizNumber, button {
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        #quizNumber {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+
+    <script>
+        function findCompletedQuizzes() {
+            var quizid = document.getElementById('quizNumber').value;
+            if (quizid!='') {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function(){
+                    if (this.readyState == 4 && this.status == 200) {
+                        var quiz_folder=this.responseText;
+                        var form1 = document.createElement("form");
+                        var quiz_folder_value= document.createElement("input");
+                        quiz_folder_value.value=quiz_folder;
+                        quiz_folder_value.type="text";
+                        quiz_folder_value.name="quiz_folder";
+                        form1.method = "POST";
+                        form1.action = ".garde/Submission.php";
+                        form1.appendChild(user_email);
+                        document.body.appendChild(form1);
+                        form1.submit();
+                        document.body.removeChild(form1);
+                    }
+                    return false;
+                };
+                xmlhttp.open("GET", "./grade/get_quiz_folder.php?quiz_id=" +quizid, true);
+                xmlhttp.send();
+            } else {
+                alert('Please enter a quiz number.');
+            }
+        }
+    </script>
+</body>
+</html>
